@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Internal Mastery — Journal</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --gold:     #D4AF37;
+  --gold-dim: rgba(212,175,55,0.15);
+  --charcoal: #303030;
+  --ch2:      #262626;
+  --ch3:      #1c1c1c;
+  --surface:  #393939;
+  --muted:    rgba(255,255,255,0.45);
+  --text:     rgba(255,255,255,0.88);
+  --radius:   12px;
+  --radius-sm:8px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--ch3); color: var(--text); font-family: 'DM Sans', sans-serif; min-height: 100vh; }
+
+/* ── LOGIN SCREEN ── */
+#loginScreen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  background: var(--ch3);
+}
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  background: var(--ch2);
+  border: 1px solid rgba(212,175,55,0.2);
+  border-radius: 18px;
+  padding: 36px 32px;
+  text-align: center;
+}
+.login-card .eyebrow {
+  font-size: 10px; font-weight: 500; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 8px;
+}
+.login-card h1 {
+  font-family: 'Outfit', sans-serif; font-weight: 900;
+  font-size: 28px; letter-spacing: -0.02em; margin-bottom: 6px;
+}
+.login-card h1 span { color: var(--gold); }
+.login-card .login-sub {
+  font-size: 13px; color: var(--muted);
+  margin-bottom: 28px; line-height: 1.5;
+}
+.form-group { text-align: left; margin-bottom: 14px; }
+.form-group label {
+  display: block; font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5); margin-bottom: 6px;
+}
+.form-group input {
+  width: 100%;
+  background: var(--ch3);
+  border: 1px solid rgba(212,175,55,0.2);
+  border-radius: var(--radius-sm);
+  padding: 13px 14px;
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.form-group input:focus { border-color: var(--gold); }
+.form-group input::placeholder { color: rgba(255,255,255,0.2); }
+.login-err {
+  font-size: 13px; color: #e05a5a;
+  margin-bottom: 14px; min-height: 18px;
+  text-align: center;
+}
+.btn-login {
+  width: 100%;
+  background: var(--gold);
+  color: var(--charcoal);
+  border: none; border-radius: var(--radius-sm);
+  padding: 14px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  cursor: pointer; transition: background 0.18s;
+  margin-top: 4px;
+}
+.btn-login:hover { background: #c9a42e; }
+.btn-login:disabled { background: rgba(212,175,55,0.3); color: rgba(0,0,0,0.4); cursor: not-allowed; }
+
+/* ── APP SCREEN ── */
+#appScreen { display: none; }
+
+.site-header {
+  background: var(--ch2);
+  border-bottom: 1px solid rgba(212,175,55,0.2);
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.header-left .eyebrow {
+  font-size: 9px; font-weight: 500; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 3px;
+}
+.header-left h1 {
+  font-family: 'Outfit', sans-serif; font-weight: 900;
+  font-size: clamp(17px,4vw,22px); letter-spacing: -0.02em;
+}
+.header-left h1 span { color: var(--gold); }
+.header-right {
+  display: flex; align-items: center; gap: 12px; flex-shrink: 0;
+}
+.welcome-name {
+  font-size: 12px; color: var(--muted);
+  text-align: right; line-height: 1.4;
+}
+.welcome-name strong { display: block; color: var(--text); font-size: 13px; }
+.btn-logout {
+  background: none;
+  border: 1px solid rgba(212,175,55,0.25);
+  color: var(--muted);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 7px 13px; border-radius: 6px;
+  cursor: pointer; transition: all 0.18s;
+  white-space: nowrap;
+}
+.btn-logout:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ── JOURNAL APP ── */
+.app { max-width: 680px; margin: 0 auto; padding: 20px 16px 60px; }
+.section-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
+}
+.lesson-grid {
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  gap: 6px; margin-bottom: 24px;
+}
+.lesson-pill {
+  background: var(--surface);
+  border: 1px solid rgba(212,175,55,0.15);
+  border-radius: 6px; padding: 8px 4px;
+  text-align: center; cursor: pointer;
+  transition: all 0.18s;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 3px;
+}
+.lesson-pill:hover { border-color: var(--gold); background: var(--gold-dim); }
+.lesson-pill.active { background: var(--gold); border-color: var(--gold); }
+.lesson-pill .pill-num {
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px; font-weight: 700; color: var(--gold);
+}
+.lesson-pill.active .pill-num { color: var(--charcoal); }
+.lesson-pill .pill-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: rgba(212,175,55,0.25);
+}
+.lesson-pill.has-entries .pill-dot { background: var(--gold); }
+.lesson-pill.active .pill-dot { background: rgba(48,48,48,0.4); }
+.lesson-pill.active.has-entries .pill-dot { background: var(--charcoal); }
+
+.stats-bar {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 10px; margin-bottom: 20px;
+}
+.stat-card {
+  background: var(--surface);
+  border: 1px solid rgba(212,175,55,0.12);
+  border-radius: var(--radius);
+  padding: 14px 12px; text-align: center;
+}
+.stat-card .stat-val {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900; font-size: 28px;
+  color: var(--gold); line-height: 1; margin-bottom: 3px;
+}
+.stat-card .stat-label {
+  font-size: 10px; font-weight: 500; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--muted);
+}
+
+.dot-grid-wrap {
+  background: var(--surface);
+  border: 1px solid rgba(212,175,55,0.12);
+  border-radius: var(--radius);
+  padding: 16px; margin-bottom: 20px;
+}
+.dot-grid-header {
+  display: flex; justify-content: space-between;
+  align-items: center; margin-bottom: 12px;
+}
+.dot-grid {
+  display: grid; grid-template-columns: repeat(15,1fr); gap: 5px;
+}
+.dot {
+  aspect-ratio: 1; border-radius: 3px;
+  background: var(--ch3);
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: background 0.2s;
+}
+.dot.filled { background: var(--gold); border-color: var(--gold); }
+.dot.today { border-color: rgba(212,175,55,0.5); }
+.dot-legend { display: flex; align-items: center; gap: 5px; font-size: 10px; color: var(--muted); }
+.dot-legend-dot { width: 8px; height: 8px; border-radius: 2px; background: var(--gold); }
+
+.lesson-card {
+  background: var(--surface);
+  border: 1px solid rgba(212,175,55,0.2);
+  border-radius: var(--radius);
+  padding: 20px; margin-bottom: 16px;
+}
+.lesson-num-badge {
+  display: inline-block;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--charcoal); background: var(--gold);
+  padding: 3px 9px; border-radius: 40px; margin-bottom: 8px;
+}
+.lesson-card h2 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700; font-size: clamp(16px,3vw,20px);
+  line-height: 1.25; margin-bottom: 10px;
+}
+.lesson-card .question-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 6px;
+}
+.lesson-card .question {
+  font-size: 15px; color: rgba(255,255,255,0.75);
+  font-style: italic; line-height: 1.6;
+}
+
+.entry-form { margin-bottom: 24px; }
+.entry-form textarea {
+  width: 100%;
+  background: var(--ch2);
+  border: 1px solid rgba(212,175,55,0.2);
+  border-radius: var(--radius);
+  padding: 16px;
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; line-height: 1.7;
+  resize: vertical; min-height: 140px;
+  transition: border-color 0.2s; outline: none;
+}
+.entry-form textarea::placeholder { color: rgba(255,255,255,0.2); }
+.entry-form textarea:focus { border-color: var(--gold); }
+.form-footer {
+  display: flex; justify-content: space-between;
+  align-items: center; margin-top: 10px; gap: 10px; flex-wrap: wrap;
+}
+.char-count { font-size: 11px; color: var(--muted); }
+.btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  border: none; border-radius: var(--radius-sm);
+  padding: 11px 22px; cursor: pointer; transition: all 0.18s;
+}
+.btn-gold { background: var(--gold); color: var(--charcoal); }
+.btn-gold:hover { background: #c9a42e; }
+.today-saved {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 12px; color: var(--gold); font-weight: 600;
+}
+
+.past-entries-header {
+  display: flex; justify-content: space-between;
+  align-items: center; margin-bottom: 12px; cursor: pointer;
+}
+.past-entries-header .toggle-icon { color: var(--gold); transition: transform 0.25s; }
+.past-entries-header.open .toggle-icon { transform: rotate(180deg); }
+.past-entries-list { display: none; flex-direction: column; gap: 8px; margin-bottom: 24px; }
+.past-entries-list.open { display: flex; }
+.entry-item {
+  background: var(--ch2); border: 1px solid rgba(212,175,55,0.1);
+  border-radius: var(--radius-sm); padding: 14px;
+}
+.entry-item .entry-date {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 6px;
+}
+.entry-item .entry-text { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.65; white-space: pre-wrap; }
+
+.divider { height: 1px; background: rgba(212,175,55,0.08); margin: 20px 0; }
+
+.reflection-card {
+  background: var(--surface);
+  border: 1px solid rgba(212,175,55,0.2);
+  border-radius: var(--radius); overflow: hidden; margin-bottom: 20px;
+}
+.reflection-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px; }
+.reflection-header .r-icon {
+  width: 36px; height: 36px; border-radius: 8px;
+  background: var(--gold-dim);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.reflection-header h3 { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 15px; line-height: 1.2; }
+.reflection-header .r-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.reflection-locked { padding: 0 20px 20px; }
+.lock-bar {
+  background: var(--ch3);
+  border: 1px dashed rgba(212,175,55,0.2);
+  border-radius: var(--radius-sm);
+  padding: 16px; text-align: center;
+}
+.lock-bar .lock-progress { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+.lock-bar .progress-track { height: 4px; background: rgba(255,255,255,0.08); border-radius: 2px; overflow: hidden; }
+.lock-bar .progress-fill { height: 100%; background: var(--gold); border-radius: 2px; transition: width 0.4s; }
+.reflection-body { padding: 0 20px 20px; display: none; }
+.reflection-body.visible { display: block; }
+.reflection-text { font-size: 14px; line-height: 1.8; color: rgba(255,255,255,0.82); white-space: pre-wrap; }
+.reflection-text.loading { color: var(--muted); font-style: italic; }
+.reflection-meta {
+  margin-top: 14px; padding-top: 14px;
+  border-top: 1px solid rgba(212,175,55,0.1);
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
+}
+.reflection-meta .r-note { font-size: 11px; color: var(--muted); }
+.btn-outline {
+  background: none; border: 1px solid rgba(212,175,55,0.3);
+  color: var(--gold); font-size: 11px;
+}
+.btn-outline:hover { background: var(--gold-dim); }
+
+.toast {
+  position: fixed; bottom: 24px; left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--gold); color: var(--charcoal);
+  font-weight: 700; font-size: 13px; letter-spacing: 0.04em;
+  padding: 10px 22px; border-radius: 40px;
+  opacity: 0; transition: all 0.3s; pointer-events: none;
+  white-space: nowrap; z-index: 999;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+@media(max-width:480px){
+  .login-card { padding: 28px 20px; }
+  .header-right .welcome-name { display: none; }
+  .stat-card .stat-val { font-size: 22px; }
+  .dot-grid { gap: 4px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     LOGIN SCREEN
+══════════════════════════════════════════ -->
+<div id="loginScreen">
+  <div class="login-card">
+    <p class="eyebrow">AWKN With Dan</p>
+    <h1>Internal <span>Mastery</span></h1>
+    <p class="login-sub">Your journal. Your patterns. Your progress.</p>
+
+    <div class="form-group">
+      <label for="loginPass">Access Code</label>
+      <input type="password" id="loginPass" autocomplete="current-password" placeholder="Enter your access code"
+             onkeydown="if(event.key==='Enter') doLogin()" />
+    </div>
+    <div class="login-err" id="loginErr"></div>
+    <button class="btn-login" id="loginBtn" onclick="doLogin()">Enter</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     APP SCREEN
+══════════════════════════════════════════ -->
+<div id="appScreen">
+
+  <header class="site-header">
+    <div class="header-left">
+      <p class="eyebrow">AWKN With Dan</p>
+      <h1>Internal <span>Mastery</span> Journal</h1>
+    </div>
+    <div class="header-right">
+      <div class="welcome-name">Internal Mastery</div>
+      <button class="btn-logout" onclick="doLogout()">Sign out</button>
+    </div>
+  </header>
+
+  <div class="app">
+
+    <div class="section-label">Select Your Lesson</div>
+    <div class="lesson-grid" id="lessonGrid"></div>
+
+    <div class="stats-bar">
+      <div class="stat-card">
+        <div class="stat-val" id="statStreak">0</div>
+        <div class="stat-label">Day Streak 🔥</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val" id="statTotal">0</div>
+        <div class="stat-label">Total Entries</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val" id="statLessons">0</div>
+        <div class="stat-label">Lessons Touched</div>
+      </div>
+    </div>
+
+    <div class="dot-grid-wrap">
+      <div class="dot-grid-header">
+        <span class="section-label" style="margin:0">Last 30 Days</span>
+        <div class="dot-legend"><div class="dot-legend-dot"></div> Entry written</div>
+      </div>
+      <div class="dot-grid" id="dotGrid"></div>
+    </div>
+
+    <div class="lesson-card">
+      <span class="lesson-num-badge" id="lessonBadge">Lesson 01</span>
+      <h2 id="lessonTitle">—</h2>
+      <div class="question-label">Today's Question</div>
+      <p class="question" id="lessonQuestion">—</p>
+    </div>
+
+    <div class="entry-form">
+      <textarea id="entryText" placeholder="Write freely — there's no wrong answer here. Just what's true for you right now."></textarea>
+      <div class="form-footer">
+        <span class="char-count" id="charCount">0 words</span>
+        <div id="saveArea">
+          <button class="btn btn-gold" onclick="saveEntry()">Save Entry</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="past-entries-header" id="pastHeader" onclick="togglePast()">
+      <span class="section-label" style="margin:0" id="pastLabel">Past Entries (0)</span>
+      <svg class="toggle-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M4 6L8 10L12 6" stroke="#D4AF37" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="past-entries-list" id="pastList"></div>
+
+    <div class="divider"></div>
+
+    <div class="reflection-card">
+      <div class="reflection-header">
+        <div class="r-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M9 2L11.5 7L17 7.5L13 11.5L14.5 17L9 14L3.5 17L5 11.5L1 7.5L6.5 7L9 2Z" stroke="#D4AF37" stroke-width="1.4" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div>
+          <h3>AI Pattern Reflection</h3>
+          <p class="r-sub">Reads your last 14 entries and names what's running beneath them</p>
+        </div>
+      </div>
+      <div class="reflection-locked" id="reflectionLocked">
+        <div class="lock-bar">
+          <p class="lock-progress">Write 3 entries to unlock — <strong id="lockCount">0/3</strong></p>
+          <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+        </div>
+      </div>
+      <div class="reflection-body" id="reflectionBody">
+        <div class="reflection-text" id="reflectionText"></div>
+        <div class="reflection-meta">
+          <span class="r-note" id="reflectionNote">Click refresh to generate your reflection</span>
+          <button class="btn btn-outline" onclick="getReflection()">Refresh Reflection</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ─────────────────────────────────────────────
+//  AUTH
+// ─────────────────────────────────────────────
+const TOKEN_KEY = 'awkn_token';
+let currentUser = '';
+
+async function checkAuth() {
+  const token = localStorage.getItem(TOKEN_KEY);
+  if (!token) { showLogin(); return; }
+  try {
+    const res = await fetch('/api/verify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token })
+    });
+    const data = await res.json();
+    if (data.valid) {
+      currentUser = data.username;
+      showApp(data.displayName);
+    } else {
+      localStorage.removeItem(TOKEN_KEY);
+      showLogin();
+    }
+  } catch {
+    showLogin();
+  }
+}
+
+async function doLogin() {
+  const password = document.getElementById('loginPass').value;
+  const btn = document.getElementById('loginBtn');
+  const err = document.getElementById('loginErr');
+
+  if (!password) { err.textContent = 'Please enter your access code.'; return; }
+
+  btn.disabled = true;
+  btn.textContent = 'Checking…';
+  err.textContent = '';
+
+  try {
+    const res = await fetch('/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password })
+    });
+    const data = await res.json();
+    if (res.ok) {
+      localStorage.setItem(TOKEN_KEY, data.token);
+      currentUser = 'client';
+      showApp();
+    } else {
+      err.textContent = data.error || 'Incorrect access code.';
+    }
+  } catch {
+    err.textContent = 'Something went wrong. Please try again.';
+  }
+
+  btn.disabled = false;
+  btn.textContent = 'Enter';
+}
+
+function doLogout() {
+  localStorage.removeItem(TOKEN_KEY);
+  currentUser = '';
+  document.getElementById('loginPass').value = '';
+  showLogin();
+}
+
+function showLogin() {
+  document.getElementById('loginScreen').style.display = 'flex';
+  document.getElementById('appScreen').style.display = 'none';
+}
+
+function showApp() {
+  document.getElementById('loginScreen').style.display = 'none';
+  document.getElementById('appScreen').style.display = 'block';
+  loadState();
+  render();
+  if (state.entries.length >= 3 && !currentReflection) getReflection();
+}
+
+// ─────────────────────────────────────────────
+//  DATA
+// ─────────────────────────────────────────────
+const LESSONS = [
+  { id:1, title:"The £1,000 Bet and Why I Made It Public", question:"What would you genuinely put on the line right now — money, reputation, a promise to someone who matters — if it meant you couldn't talk yourself out of it this time?" },
+  { id:2, title:"Why Discipline Isn't the Answer", question:"Where are you applying more force — more training, more restriction, more willpower — when the real problem is the foundation underneath? What might you be avoiding fixing?" },
+  { id:3, title:"You Haven't Lost It. You've Just Buried It.", question:"Describe the version of yourself you feel most disconnected from. What was he like, what did he feel like — and what do you think buried him?" },
+  { id:4, title:"The Depletion Nobody Talks About", question:"What has years of responsibility actually cost you that nobody ever acknowledges — not the physical stuff, but the parts of you that quietly disappeared?" },
+  { id:5, title:"What 'Fine' Is Really Costing You", question:"Where in your life are you settling for 'fine' — in your body, your energy, your relationships — and when did you stop noticing it wasn't enough?" },
+  { id:6, title:"The Man in the Mirror", question:"Who do you see when you look in the mirror right now? Be honest. And who do you know — underneath all of it — you still are?" },
+  { id:7, title:"Your Body Keeps Score", question:"What is your body trying to tell you that you've been ignoring, explaining away, or pushing through? What would you hear if you actually stopped and listened?" },
+  { id:8, title:"The Permission Problem", question:"What are you waiting for permission to do — to prioritise yourself, to change, to be the man you want to be? Who are you waiting for it from?" },
+  { id:9, title:"Bloodwork Not Guesswork", question:"Where in your life are you guessing when you could be measuring — in your health, your energy, your performance? What assumption have you been treating as truth?" },
+  { id:10, title:"Still Got It", question:"Describe the last moment you felt completely, undeniably like yourself — sharp, capable, alive. What was present in that moment that's missing from your life right now?" },
+];
+
+// ─────────────────────────────────────────────
+//  STATE  (keyed per user so clients don't share)
+// ─────────────────────────────────────────────
+let state = { entries: [] };
+let currentLesson = 1;
+let pastOpen = false;
+let currentReflection = '';
+
+function storageKey() { return `awkn_journal_${currentUser}`; }
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(storageKey());
+    state = raw ? JSON.parse(raw) : { entries: [] };
+  } catch { state = { entries: [] }; }
+}
+
+function saveState() { localStorage.setItem(storageKey(), JSON.stringify(state)); }
+
+// ─────────────────────────────────────────────
+//  HELPERS
+// ─────────────────────────────────────────────
+function todayStr() { return new Date().toISOString().slice(0,10); }
+function formatDate(ds) {
+  return new Date(ds + 'T00:00:00').toLocaleDateString('en-GB', { weekday:'short', day:'numeric', month:'long', year:'numeric' });
+}
+function entriesForLesson(id) {
+  return state.entries.filter(e => e.lessonId === id).sort((a,b) => b.date.localeCompare(a.date));
+}
+function hasTodayEntry(id) { return state.entries.some(e => e.lessonId === id && e.date === todayStr()); }
+function calcStreak() {
+  const days = [...new Set(state.entries.map(e => e.date))].sort().reverse();
+  if (!days.length) return 0;
+  let streak = 0, check = new Date(); check.setHours(0,0,0,0);
+  for (let i = 0; i < 365; i++) {
+    const ds = check.toISOString().slice(0,10);
+    if (days.includes(ds)) { streak++; }
+    else if (streak > 0 || i > 0) break;
+    check.setDate(check.getDate()-1);
+  }
+  return streak;
+}
+function wordCount(t) { return t.trim().split(/\s+/).filter(w=>w).length; }
+function escHtml(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>'); }
+
+// ─────────────────────────────────────────────
+//  RENDER
+// ─────────────────────────────────────────────
+function render() {
+  renderLessonGrid(); renderStats(); renderDotGrid();
+  renderLessonCard(); renderSaveArea(); renderPastEntries(); renderReflection();
+}
+
+function renderLessonGrid() {
+  const grid = document.getElementById('lessonGrid');
+  grid.innerHTML = '';
+  LESSONS.forEach(l => {
+    const has = state.entries.some(e => e.lessonId === l.id);
+    const d = document.createElement('div');
+    d.className = 'lesson-pill' + (l.id===currentLesson?' active':'') + (has?' has-entries':'');
+    d.innerHTML = `<span class="pill-num">${l.id<10?'0'+l.id:l.id}</span><div class="pill-dot"></div>`;
+    d.onclick = () => selectLesson(l.id);
+    grid.appendChild(d);
+  });
+}
+
+function renderStats() {
+  document.getElementById('statStreak').textContent = calcStreak();
+  document.getElementById('statTotal').textContent = state.entries.length;
+  document.getElementById('statLessons').textContent = new Set(state.entries.map(e=>e.lessonId)).size;
+}
+
+function renderDotGrid() {
+  const grid = document.getElementById('dotGrid');
+  grid.innerHTML = '';
+  const filled = new Set(state.entries.map(e=>e.date));
+  const today = todayStr();
+  for (let i=29; i>=0; i--) {
+    const d=new Date(); d.setDate(d.getDate()-i);
+    const ds=d.toISOString().slice(0,10);
+    const dot=document.createElement('div');
+    dot.className='dot'+(filled.has(ds)?' filled':'')+(ds===today?' today':'');
+    dot.title=formatDate(ds);
+    grid.appendChild(dot);
+  }
+}
+
+function renderLessonCard() {
+  const l = LESSONS.find(l=>l.id===currentLesson);
+  document.getElementById('lessonBadge').textContent = `Lesson ${currentLesson<10?'0'+currentLesson:currentLesson}`;
+  document.getElementById('lessonTitle').textContent = l.title;
+  document.getElementById('lessonQuestion').textContent = l.question;
+}
+
+function renderSaveArea() {
+  const area = document.getElementById('saveArea');
+  if (hasTodayEntry(currentLesson)) {
+    area.innerHTML = `<div class="today-saved">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <circle cx="8" cy="8" r="7" stroke="#D4AF37" stroke-width="1.3"/>
+        <path d="M5 8L7 10L11 6" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>Entry saved for today</div>`;
+    document.getElementById('entryText').placeholder = "You've already written for this lesson today. Come back tomorrow, or add a follow-up below.";
+  } else {
+    area.innerHTML = `<button class="btn btn-gold" onclick="saveEntry()">Save Entry</button>`;
+  }
+}
+
+function renderPastEntries() {
+  const entries = entriesForLesson(currentLesson);
+  document.getElementById('pastLabel').textContent = `Past Entries (${entries.length})`;
+  const list = document.getElementById('pastList');
+  list.innerHTML = entries.map(e=>`
+    <div class="entry-item">
+      <div class="entry-date">${formatDate(e.date)}</div>
+      <div class="entry-text">${escHtml(e.text)}</div>
+    </div>`).join('');
+  if (!entries.length) { list.classList.remove('open'); document.getElementById('pastHeader').classList.remove('open'); pastOpen=false; }
+  else if (pastOpen) { list.classList.add('open'); document.getElementById('pastHeader').classList.add('open'); }
+}
+
+function renderReflection() {
+  const total = state.entries.length;
+  document.getElementById('reflectionLocked').style.display = total>=3?'none':'';
+  document.getElementById('reflectionBody').classList.toggle('visible', total>=3);
+  document.getElementById('lockCount').textContent = `${Math.min(total,3)}/3`;
+  document.getElementById('progressFill').style.width = `${Math.min(total/3,1)*100}%`;
+}
+
+// ─────────────────────────────────────────────
+//  ACTIONS
+// ─────────────────────────────────────────────
+function selectLesson(id) {
+  currentLesson=id;
+  document.getElementById('entryText').value='';
+  document.getElementById('charCount').textContent='0 words';
+  pastOpen=false;
+  render();
+}
+
+function saveEntry() {
+  const text = document.getElementById('entryText').value.trim();
+  if (!text) { showToast('Write something first.'); return; }
+  if (wordCount(text)<5) { showToast('Keep going — a few more words.'); return; }
+  state.entries.push({ id:Date.now().toString(), lessonId:currentLesson, date:todayStr(), text });
+  saveState();
+  document.getElementById('entryText').value='';
+  document.getElementById('charCount').textContent='0 words';
+  showToast('Entry saved ✓');
+  const wasUnlocked = state.entries.length===3;
+  render();
+  if (wasUnlocked) getReflection();
+}
+
+function togglePast() {
+  if (!entriesForLesson(currentLesson).length) return;
+  pastOpen=!pastOpen;
+  document.getElementById('pastList').classList.toggle('open',pastOpen);
+  document.getElementById('pastHeader').classList.toggle('open',pastOpen);
+}
+
+async function getReflection() {
+  if (state.entries.length<3) return;
+  const last14 = [...state.entries].sort((a,b)=>b.date.localeCompare(a.date)).slice(0,14);
+  const textEl = document.getElementById('reflectionText');
+  const noteEl = document.getElementById('reflectionNote');
+  const btn = document.querySelector('.btn-outline');
+  if (btn) btn.disabled=true;
+  textEl.className='reflection-text loading';
+  textEl.textContent='Reading your entries and finding the patterns…';
+  const formatted = last14.map(e=>{
+    const l=LESSONS.find(l=>l.id===e.lessonId);
+    return `[${e.date} — Lesson ${e.lessonId}: ${l?.title}]\nQuestion: ${l?.question}\nEntry: ${e.text}`;
+  }).join('\n\n---\n\n');
+  try {
+    const res = await fetch('/api/reflect',{
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({entries:formatted,count:last14.length})
+    });
+    if (!res.ok) throw new Error();
+    const data = await res.json();
+    currentReflection=data.reflection;
+    textEl.className='reflection-text';
+    textEl.textContent=currentReflection;
+    noteEl.textContent=`Based on your last ${last14.length} ${last14.length===1?'entry':'entries'}`;
+  } catch {
+    textEl.className='reflection-text';
+    textEl.textContent='Something went wrong. Try again in a moment.';
+  }
+  if (btn) btn.disabled=false;
+}
+
+function showToast(msg) {
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2400);
+}
+
+document.getElementById('entryText').addEventListener('input',function(){
+  document.getElementById('charCount').textContent=wordCount(this.value)+' words';
+});
+
+// ─────────────────────────────────────────────
+//  INIT
+// ─────────────────────────────────────────────
+checkAuth();
+</script>
+</body>
+</html>
