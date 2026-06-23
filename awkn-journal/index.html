@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Internal Mastery</title>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet" />
 <style>
 :root{
   --gold:#D4AF37; --gold-dim:rgba(212,175,55,0.15); --gold-soft:rgba(212,175,55,0.08);
@@ -13,21 +13,21 @@
   --radius:12px; --radius-sm:8px; --locked:rgba(255,255,255,0.25);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-body{background:var(--ch3);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh;}
+body{background:var(--ch3);color:var(--text);font-family:'Open Sans',sans-serif;min-height:100vh;}
 
 /* LOGIN */
 #loginScreen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px 16px;}
 .login-card{width:100%;max-width:400px;background:var(--ch2);border:1px solid rgba(212,175,55,0.2);border-radius:18px;padding:36px 32px;text-align:center;}
 .login-card .eyebrow{font-size:10px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
-.login-card h1{font-family:'Outfit',sans-serif;font-weight:900;font-size:28px;letter-spacing:-0.02em;margin-bottom:6px;}
+.login-card h1{font-family:'Montserrat',sans-serif;font-weight:900;font-size:28px;letter-spacing:-0.02em;margin-bottom:6px;}
 .login-card h1 span{color:var(--gold);}
 .login-card .login-sub{font-size:13px;color:var(--muted);margin-bottom:28px;line-height:1.5;}
 .form-group{text-align:left;margin-bottom:14px;}
 .form-group label{display:block;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:6px;}
-.form-group input{width:100%;background:var(--ch3);border:1px solid rgba(212,175,55,0.2);border-radius:var(--radius-sm);padding:13px 14px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;outline:none;transition:border-color 0.2s;}
+.form-group input{width:100%;background:var(--ch3);border:1px solid rgba(212,175,55,0.2);border-radius:var(--radius-sm);padding:13px 14px;color:var(--text);font-family:'Open Sans',sans-serif;font-size:15px;outline:none;transition:border-color 0.2s;}
 .form-group input:focus{border-color:var(--gold);}
 .login-err{font-size:13px;color:#e05a5a;margin-bottom:14px;min-height:18px;text-align:center;}
-.btn-login{width:100%;background:var(--gold);color:var(--charcoal);border:none;border-radius:var(--radius-sm);padding:14px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;transition:background 0.18s;margin-top:4px;}
+.btn-login{width:100%;background:var(--gold);color:var(--charcoal);border:none;border-radius:var(--radius-sm);padding:14px;font-family:'Open Sans',sans-serif;font-size:14px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;transition:background 0.18s;margin-top:4px;}
 .btn-login:hover{background:#c9a42e;}
 .btn-login:disabled{background:rgba(212,175,55,0.3);color:rgba(0,0,0,0.4);cursor:not-allowed;}
 
@@ -35,9 +35,9 @@ body{background:var(--ch3);color:var(--text);font-family:'DM Sans',sans-serif;mi
 #appScreen{display:none;}
 .site-header{background:var(--ch2);border-bottom:1px solid rgba(212,175,55,0.2);padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
 .header-left .eyebrow{font-size:9px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:3px;}
-.header-left h1{font-family:'Outfit',sans-serif;font-weight:900;font-size:clamp(17px,4vw,22px);letter-spacing:-0.02em;}
+.header-left h1{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(17px,4vw,22px);letter-spacing:-0.02em;}
 .header-left h1 span{color:var(--gold);}
-.btn-logout{background:none;border:1px solid rgba(212,175,55,0.25);color:var(--muted);font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:7px 13px;border-radius:6px;cursor:pointer;transition:all 0.18s;white-space:nowrap;}
+.btn-logout{background:none;border:1px solid rgba(212,175,55,0.25);color:var(--muted);font-family:'Open Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:7px 13px;border-radius:6px;cursor:pointer;transition:all 0.18s;white-space:nowrap;}
 .btn-logout:hover{border-color:var(--gold);color:var(--gold);}
 
 .app{max-width:680px;margin:0 auto;padding:20px 16px 60px;}
@@ -47,15 +47,15 @@ body{background:var(--ch3);color:var(--text);font-family:'DM Sans',sans-serif;mi
 .hero{background:linear-gradient(160deg,var(--surface),var(--ch2));border:1px solid rgba(212,175,55,0.25);border-radius:16px;padding:22px;margin-bottom:24px;}
 .hero-top{display:flex;gap:12px;margin-bottom:18px;}
 .hero-stat{flex:1;text-align:center;background:var(--ch3);border:1px solid rgba(212,175,55,0.12);border-radius:var(--radius);padding:12px 8px;}
-.hero-stat .v{font-family:'Outfit',sans-serif;font-weight:900;font-size:26px;color:var(--gold);line-height:1;margin-bottom:3px;}
+.hero-stat .v{font-family:'Montserrat',sans-serif;font-weight:900;font-size:26px;color:var(--gold);line-height:1;margin-bottom:3px;}
 .hero-stat .l{font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);}
 .progress-block{margin-bottom:16px;}
-.progress-headline{font-family:'Outfit',sans-serif;font-weight:700;font-size:15px;margin-bottom:4px;}
+.progress-headline{font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;margin-bottom:4px;}
 .progress-headline span{color:var(--gold);}
 .progress-sub{font-size:12px;color:var(--muted);margin-bottom:10px;}
 .progress-track{height:8px;background:rgba(255,255,255,0.08);border-radius:4px;overflow:hidden;}
 .progress-fill{height:100%;background:linear-gradient(90deg,#b8932c,var(--gold));border-radius:4px;transition:width 0.5s cubic-bezier(0.4,0,0.2,1);}
-.btn-journal-today{width:100%;background:var(--gold);color:var(--charcoal);border:none;border-radius:var(--radius-sm);padding:13px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;transition:background 0.18s;display:flex;align-items:center;justify-content:center;gap:8px;}
+.btn-journal-today{width:100%;background:var(--gold);color:var(--charcoal);border:none;border-radius:var(--radius-sm);padding:13px;font-family:'Open Sans',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;transition:background 0.18s;display:flex;align-items:center;justify-content:center;gap:8px;}
 .btn-journal-today:hover{background:#c9a42e;}
 
 /* LESSON ACCORDION */
@@ -70,7 +70,7 @@ body{background:var(--ch3);color:var(--text);font-family:'DM Sans',sans-serif;mi
 .lesson-icon{flex-shrink:0;width:28px;height:28px;border-radius:7px;background:var(--gold-dim);display:flex;align-items:center;justify-content:center;}
 .lesson.locked .lesson-icon{background:rgba(255,255,255,0.06);}
 .lesson-titlewrap{flex:1;min-width:0;}
-.lesson-title{font-family:'Outfit',sans-serif;font-weight:700;font-size:clamp(14px,2.5vw,16px);line-height:1.3;}
+.lesson-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(14px,2.5vw,16px);line-height:1.3;}
 .lesson.locked .lesson-title{color:var(--locked);}
 .lesson-status{font-size:11px;color:var(--muted);margin-top:2px;}
 .lesson-status.unlock-soon{color:var(--gold);}
@@ -94,7 +94,7 @@ body{background:var(--ch3);color:var(--text);font-family:'DM Sans',sans-serif;mi
 .lesson-desc{font-size:14px;color:rgba(255,255,255,0.65);line-height:1.7;font-style:italic;}
 
 .content-toggles{display:flex;flex-direction:column;gap:8px;}
-.ct{width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--ch2);border:1px solid rgba(212,175,55,0.18);border-radius:8px;padding:12px 16px;cursor:pointer;color:var(--gold);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;transition:all 0.18s;text-align:left;}
+.ct{width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--ch2);border:1px solid rgba(212,175,55,0.18);border-radius:8px;padding:12px 16px;cursor:pointer;color:var(--gold);font-family:'Open Sans',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;transition:all 0.18s;text-align:left;}
 .ct:hover{background:var(--gold-dim);border-color:var(--gold);}
 .ct.open{background:var(--gold);color:var(--charcoal);border-color:var(--gold);}
 .ct .ct-chev{transition:transform 0.25s;flex-shrink:0;}
@@ -113,19 +113,37 @@ body{background:var(--ch3);color:var(--text);font-family:'DM Sans',sans-serif;mi
 .prompt-box{background:var(--ch3);border:1px solid rgba(212,175,55,0.1);border-top:none;border-radius:0 0 8px 8px;padding:18px;}
 .prompt-box .prompt-label{font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
 .prompt-box .prompt-text{font-size:14px;color:rgba(255,255,255,0.82);line-height:1.75;white-space:pre-wrap;margin-bottom:14px;}
-.copy-btn{display:inline-flex;align-items:center;gap:7px;background:var(--gold-dim);border:1px solid rgba(212,175,55,0.3);color:var(--gold);font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:8px 14px;border-radius:6px;cursor:pointer;transition:all 0.18s;}
+.copy-btn{display:inline-flex;align-items:center;gap:7px;background:var(--gold-dim);border:1px solid rgba(212,175,55,0.3);color:var(--gold);font-family:'Open Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:8px 14px;border-radius:6px;cursor:pointer;transition:all 0.18s;}
 .copy-btn:hover{background:var(--gold);color:var(--charcoal);border-color:var(--gold);}
 
 /* JOURNAL block */
+/* GO DEEPER (books) */
+.deeper-block{background:var(--ch3);border:1px solid rgba(212,175,55,0.15);border-radius:var(--radius);padding:16px 18px;}
+.deeper-block .d-label{font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;}
+.deeper-block .d-sub{font-size:12px;color:var(--muted);margin-bottom:12px;}
+.book-link{display:flex;align-items:center;gap:10px;padding:10px 0;border-top:1px solid rgba(212,175,55,0.08);color:var(--text);text-decoration:none;transition:color 0.18s;}
+.book-link:first-of-type{border-top:none;}
+.book-link:hover{color:var(--gold);}
+.book-link .b-icon{flex-shrink:0;color:var(--gold);}
+.book-link .b-title{font-family:'Montserrat',sans-serif;font-weight:600;font-size:14px;font-style:italic;}
+.book-link .b-arrow{margin-left:auto;color:var(--muted);flex-shrink:0;}
+.book-link:hover .b-arrow{color:var(--gold);}
+
+/* BREATHWORK */
+.breath-block{background:var(--ch3);border:1px solid rgba(212,175,55,0.15);border-radius:var(--radius);padding:16px 18px;display:flex;align-items:center;gap:12px;}
+.breath-block .br-icon{width:34px;height:34px;border-radius:8px;background:var(--gold-dim);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.breath-block .br-text .br-label{font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:2px;}
+.breath-block .br-text .br-sub{font-size:13px;color:var(--muted);}
+
 .journal-block{background:var(--ch2);border:1px solid rgba(212,175,55,0.25);border-radius:var(--radius);padding:18px;}
 .journal-block .j-label{font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
-.journal-block .j-prompt{font-family:'Outfit',sans-serif;font-weight:700;font-size:15px;line-height:1.45;margin-bottom:14px;}
-.journal-block textarea{width:100%;background:var(--ch3);border:1px solid rgba(212,175,55,0.2);border-radius:var(--radius-sm);padding:14px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;line-height:1.7;resize:vertical;min-height:110px;outline:none;transition:border-color 0.2s;}
+.journal-block .j-prompt{font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;line-height:1.45;margin-bottom:14px;}
+.journal-block textarea{width:100%;background:var(--ch3);border:1px solid rgba(212,175,55,0.2);border-radius:var(--radius-sm);padding:14px;color:var(--text);font-family:'Open Sans',sans-serif;font-size:14px;line-height:1.7;resize:vertical;min-height:110px;outline:none;transition:border-color 0.2s;}
 .journal-block textarea::placeholder{color:rgba(255,255,255,0.2);}
 .journal-block textarea:focus{border-color:var(--gold);}
 .j-footer{display:flex;justify-content:space-between;align-items:center;margin-top:10px;gap:10px;flex-wrap:wrap;}
 .j-count{font-size:11px;color:var(--muted);}
-.btn{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;border:none;border-radius:var(--radius-sm);padding:11px 22px;cursor:pointer;transition:all 0.18s;}
+.btn{font-family:'Open Sans',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;border:none;border-radius:var(--radius-sm);padding:11px 22px;cursor:pointer;transition:all 0.18s;}
 .btn-gold{background:var(--gold);color:var(--charcoal);}
 .btn-gold:hover{background:#c9a42e;}
 .j-saved{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--gold);font-weight:600;}
@@ -145,7 +163,7 @@ body{background:var(--ch3);color:var(--text);font-family:'DM Sans',sans-serif;mi
 .reflection-card{background:var(--surface);border:1px solid rgba(212,175,55,0.2);border-radius:var(--radius);overflow:hidden;margin-bottom:24px;}
 .reflection-header{display:flex;align-items:center;gap:12px;padding:16px 20px;}
 .reflection-header .r-icon{width:36px;height:36px;border-radius:8px;background:var(--gold-dim);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.reflection-header h3{font-family:'Outfit',sans-serif;font-weight:700;font-size:15px;line-height:1.2;}
+.reflection-header h3{font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;line-height:1.2;}
 .reflection-header .r-sub{font-size:12px;color:var(--muted);margin-top:2px;}
 .reflection-locked{padding:0 20px 20px;}
 .lock-bar{background:var(--ch3);border:1px dashed rgba(212,175,55,0.2);border-radius:var(--radius-sm);padding:16px;text-align:center;}
@@ -182,13 +200,13 @@ body{background:var(--ch3);color:var(--text);font-family:'DM Sans',sans-serif;mi
 .unlock-card{width:100%;max-width:480px;background:linear-gradient(165deg,var(--surface),var(--ch2));border:1px solid var(--gold);border-radius:20px;padding:32px 28px;text-align:center;max-height:90vh;overflow-y:auto;}
 .unlock-badge{width:64px;height:64px;border-radius:50%;background:var(--gold-dim);border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;}
 .unlock-eyebrow{font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
-.unlock-card h2{font-family:'Outfit',sans-serif;font-weight:900;font-size:24px;line-height:1.2;margin-bottom:14px;}
+.unlock-card h2{font-family:'Montserrat',sans-serif;font-weight:900;font-size:24px;line-height:1.2;margin-bottom:14px;}
 .unlock-message{font-size:15px;color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:20px;}
 .unlock-reflection{background:var(--ch3);border:1px solid rgba(212,175,55,0.15);border-radius:var(--radius);padding:18px;text-align:left;margin-bottom:22px;}
 .unlock-reflection .ur-label{font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:6px;}
 .unlock-reflection .ur-text{font-size:13px;line-height:1.75;color:rgba(255,255,255,0.82);white-space:pre-wrap;}
 .unlock-reflection .ur-text.loading{color:var(--muted);font-style:italic;}
-.btn-continue{width:100%;background:var(--gold);color:var(--charcoal);border:none;border-radius:var(--radius-sm);padding:14px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;transition:background 0.18s;}
+.btn-continue{width:100%;background:var(--gold);color:var(--charcoal);border:none;border-radius:var(--radius-sm);padding:14px;font-family:'Open Sans',sans-serif;font-size:14px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;transition:background 0.18s;}
 .btn-continue:hover{background:#c9a42e;}
 
 @media(max-width:480px){
@@ -231,6 +249,15 @@ body{background:var(--ch3);color:var(--text);font-family:'DM Sans',sans-serif;mi
     <!-- HERO -->
     <div class="hero" id="hero"></div>
 
+    <!-- DOT GRID (moved up — sits under hero) -->
+    <div class="dot-grid-wrap">
+      <div class="dot-grid-header">
+        <span class="section-label" style="margin:0">Your Consistency — First 30 Days</span>
+        <div class="dot-legend"><div class="dot-legend-dot"></div> Journaled</div>
+      </div>
+      <div class="dot-grid" id="dotGrid"></div>
+    </div>
+
     <!-- LESSONS -->
     <div class="section-label">Your Journey</div>
     <div class="lessons" id="lessons"></div>
@@ -248,28 +275,11 @@ body{background:var(--ch3);color:var(--text);font-family:'DM Sans',sans-serif;mi
           <p class="r-sub">Reads your recent entries and names what's running beneath them</p>
         </div>
       </div>
-      <div class="reflection-locked" id="reflectionLocked">
+      <div class="reflection-locked">
         <div class="lock-bar">
-          <p class="lp">Write 3 entries to unlock — <strong id="lockCount">0/3</strong></p>
-          <div class="pt"><div class="pf" id="reflFill" style="width:0%"></div></div>
+          <p class="lp" style="margin-bottom:0;">Coming soon</p>
         </div>
       </div>
-      <div class="reflection-body" id="reflectionBody">
-        <div class="reflection-text" id="reflectionText"></div>
-        <div class="reflection-meta">
-          <span class="r-note" id="reflectionNote">Click refresh to generate your reflection</span>
-          <button class="btn btn-outline" onclick="getReflection('reflectionText','reflectionNote')">Refresh Reflection</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- DOT GRID -->
-    <div class="dot-grid-wrap">
-      <div class="dot-grid-header">
-        <span class="section-label" style="margin:0">Your Consistency — Last 30 Days</span>
-        <div class="dot-legend"><div class="dot-legend-dot"></div> Journaled</div>
-      </div>
-      <div class="dot-grid" id="dotGrid"></div>
     </div>
   </div>
 
@@ -285,13 +295,6 @@ body{background:var(--ch3);color:var(--text);font-family:'DM Sans',sans-serif;mi
     <p class="unlock-eyebrow">New Lesson Unlocked</p>
     <h2 id="unlockTitle"></h2>
     <p class="unlock-message" id="unlockMessage"></p>
-    <div class="unlock-reflection">
-      <div class="ur-label">
-        <svg width="13" height="13" viewBox="0 0 18 18" fill="none"><path d="M9 2L11.5 7L17 7.5L13 11.5L14.5 17L9 14L3.5 17L5 11.5L1 7.5L6.5 7L9 2Z" stroke="#D4AF37" stroke-width="1.6" stroke-linejoin="round"/></svg>
-        What I See In Your Writing
-      </div>
-      <div class="ur-text loading" id="unlockReflection">Reading what you've written…</div>
-    </div>
     <button class="btn-continue" onclick="closeUnlock()">Continue</button>
   </div>
 </div>
@@ -325,41 +328,87 @@ const LESSONS = [
   {
     id:'intro', type:'intro', unlockAt:null,
     title:'Introduction: Internal Mastery',
-    loomId:'',
-    desc:'Start here. What this is, why it works, and how to get the most out of it.',
+    loomId:'a6fde5c3bc02436fb854373b13acb141',
+    desc:'Start here. Why bloodwork is only half the picture — and what internal mastery does that no habit book can.',
     script:[
-      "[PLACEHOLDER — replace with your intro script.] Welcome. Before we get into any of the lessons, I want to explain what this actually is and why it works.",
-      "This isn't about motivation or hype. It's about learning to see — to notice what's running underneath your thoughts, your reactions, your habits. Because once you can see it, you can change it.",
-      "Each lesson has a short video, the full script if you'd rather read, and a quick summary. From Lesson 1 onwards there's also a daily journal prompt. Answer it for five days and the next lesson opens up.",
-      "Don't rush it. The five days aren't a hurdle — they're the point. That's how this becomes part of you instead of something you watched once and forgot.",
+      "Welcome to The AWKN Man's Guide To Internal Mastery.",
+      "Now, chances are we've already looked inside your body with bloodwork or at least are waiting for it to be completed. We know — or will know — the reality of how your body's running that you'd never know from just looking in a mirror, stepping on a scale, working with a generic personal trainer, or taking a shitty finger prick test that looks at 2 markers.",
+      "Bloodwork, not guesswork, is where we start because your blood doesn't lie.",
+      "While bloodwork explains a lot from a biological standpoint, it doesn't account for the psychological part of getting in the best shape of your life — to go back to feeling like the man you know you still are.",
+      "So you can be remembered for what you were able to give to your kids despite spending all day providing for them. To be there for your partner, present, calm, and available when you've got shit going on yourself. And to have the energy to do things you've always wanted, and things you can still do well into old age because you've looked after yourself.",
+      "Now, speak to anyone who's got in shape and they'll tell you “it's all mindset” or “it's all habits.” Mindset and habits are important. And yet the problem with commercial grade habit books everyone reads — like The Power of Habit or Atomic Habits — is if they worked, then why can't the people reading them break free from the habits they're desperately trying to escape?",
+      "See, the thing with habits is you can see them. Every time you blame work, busy periods, cheat on your diet, or cut corners, you can SEE yourself doing it.",
+      "But running the show underneath habits are programs. And the problem with programs is you can't see them. They live in the subconscious.",
+      "And the thing with deep subconscious programs is they're installed over years through failures, through conditioning, through everything you were told you were and weren't capable of. And when you try to build new habits on top of an old broken program, the program ALWAYS wins.",
+      "That's why you see people who start strong, then three weeks in they're back to where they started, wondering what's wrong with them. That's why you see people who can stick to a plan when life's quiet but crumble once work picks up, and they wonder if they're mentally weak. That's why people fuck up every weekend, restart on Monday, and think there's something wrong with them.",
+      "There's NOTHING wrong with them. They just can't see that underneath all their fuck ups, all their self-sabotaging, and their all-or-nothing mindset, there are programs running them.",
+      "Once you go way deeper than any commercial grade mindset book will ever take you, you get to the root of the program. And so you start to see things others can't see and things you can't see yourself. Then, along with bloodwork, how much fat you lose, how much strength you gain, and how much energy you reclaim is up to you.",
+      "And I know all this because I've spent the last 12 years working with over 500+ men. I've seen some men achieve things they never thought were possible.",
+      "Now, I'm a firm believer that to help someone else, we can only do that once we have a true understanding of ourselves. Which means I've had to unpack the programs that fucked with me for years. And with the help of a mentor, I found a way of recognising them, bringing awareness to them, and seeing them for what they were and what job they were serving — what they were protecting me from and keeping me safe from. And now I want to help you do the same.",
+      "When men can't see the program running them, they can buy all the supps, try every program, every diet, every morning routine — and they'll keep running into the same wall. And the only reason a problem becomes a problem is when you can't see why it's become a problem in the first place.",
+      "That's why with AWKN I show you how to see. I help you see things inside your body with bloodwork, and your mind with internal mastery. Once you see things others can't see and things you can't see yourself, there is no ceiling to how far you take your transformation.",
+      "What you're about to discover inside AWKN is your own psychology but on steroids. AWKN's internal mastery is mental reps for how you think. It's a blend of science, philosophy, and my own personal experience that's allowed me to get photoshoot lean countless times, run an ultra marathon with 6 months training, total 550kg at a powerlifting meet (6x my bodyweight at 90kg), and I'm on track to run a 5k in under 20 minutes after 10 years off running — while helping 500+ do the same.",
+      "Because in a world where people look outside of themselves by trying the latest fitness app, fad, or whatever's popular but keep coming up short, the men who master themselves internally are in a league of their own.",
+      "They follow through on the promises they tell themselves, and so being consistent, leading by example, and being someone others respect, admire, and look up to becomes part of their DNA. Other people respect them more, take them seriously, and look to them as inspiration — because to others they come across as disciplined, trustworthy, reliable.",
+      "These men aren't special. They weren't born with a special gift. They just broke free from the programs placed on us by our parents, by society, by our teachers, friends, school, and ourselves through our shortcomings, which keep men stuck inside the narrow walls of their mind.",
+      "With AWKN my goal is to give you the key to master yourself internally so you can see what you've never been able to see before. To turn lights on in rooms in your mind you never knew existed. Break free from all sorts of programs that keep you stuck. And when you do that, you open up all sorts of possibilities.",
+      "Over the upcoming 5 Internal Mastery Breakthroughs you'll get: a tried and tested lesson rooted in human psychology, physics, and science to help you fulfil your potential and goals; an AI prompt to explore the lesson on a deeper level; reading recommendations to go deeper into the subject; and a journaling prompt so you can bring what you'll be unpacking about yourself to the forefront of your mind and practice every day.",
+      "I can't wait to share with you how you can do the same. So together, we can work on mastering ourselves physically and mentally. Because a man who can see himself, his patterns, what's running under the surface — that man doesn't just get in shape. He changes what his kids see growing up, then they grow up believing anything's possible.",
+      "That's who we're building here. Let's get to work — to help others, our kids, future generations, our partners. To become the man the world desperately needs right now.",
     ],
     summary:[
-      "This is about learning to see what's running beneath the surface.",
-      "Watch, read, or summarise — whatever way you take it in best.",
-      "From Lesson 1, journal daily. Five days unlocks the next lesson.",
-      "The pace is the point. This builds a habit, not a binge.",
+      "We start with bloodwork because your blood doesn't lie — but biology is only half the picture.",
+      "Habits you can see. Programs — installed over years in your subconscious — you can't. Build habits on a broken program and the program always wins.",
+      "There's nothing wrong with you. You just haven't been able to see what's running underneath.",
+      "AWKN shows you how to see: your body through bloodwork, your mind through internal mastery.",
+      "Over 5 Breakthroughs you get a lesson, an AI prompt, reading recommendations, and a daily journal practice.",
     ],
   },
 
   {
     id:1, type:'lesson', unlockAt:0,
     title:'Lesson 1: The Sims & The Observer',
-    loomId:'',
-    desc:'[PLACEHOLDER blurb] The single shift that changes everything: learning to watch yourself instead of being swept along.',
+    loomId:'adac88da8f6e4ebbb0acf120e11c1837',
+    desc:'The thing Dan stumbled onto at 13 that most men never find — and how to do it yourself.',
     script:[
-      "[PLACEHOLDER — replace with your Lesson 1 script.] Imagine you're playing The Sims. You control the character — but you're not the character. You're the one watching, deciding, observing from above.",
-      "Most men live their whole lives as the character. Swept along by every thought, every craving, every reaction — never once stepping back to be the observer.",
-      "The work starts the moment you realise there are two of you: the one having the reaction, and the one who can watch the reaction happen. That second one — the observer — is where all your power is.",
-      "When you catch yourself mid-reaction and think 'there I go again' — that's the observer waking up. That's the whole game.",
+      "When I was 13 years old I accidentally stumbled onto something that most men spend their entire lives never finding. When I found it I wasn't reading philosophy, or meditating, or journaling — I was on a computer powered by Windows 98 and dial-up internet playing a video game. And without having any language for what I discovered, it would become the foundation of everything I've discovered 20 years later.",
+      "So in this Internal Mastery lesson I'm going to show you what it was, and more importantly, I'm going to show you how to do it yourself.",
+      "Once you can do this, you'll start to see things you've never been able to see before — like why you start strong then things fall apart by week 3. Why you can stick to a plan when life's quiet but the moment work picks up or the kids are kicking off, everything goes to shit. Why you know exactly what to do, and still don't do it. Why you keep losing and regaining the same 5kg over and over. Or why you can lose some fat but never take it to the next level, always in a flux of cutting where the scale drops but you don't look any different and no one comments.",
+      "None of this happens because you're weak, lazy, or lack discipline. These things happen because there's something running underneath all of it that you've never been able to see. Once you can see it — and I'm going to show you how — it loses its power over you. And then what you're capable of has no ceiling.",
+      "Now, when I was younger I played the computer game The Sims. If you don't know it, you're basically controlling a character called a Sim from a bird's eye view. Your job is to keep your Sim fit and healthy so it can operate well, get job promotions, earn more money, build a nicer house.",
+      "Then one day in my teenage brain I started to imagine watching myself from above, as if someone else was controlling me. I'd imagine how I looked going about my day, what others thought of me, where I was going wrong in my grades, what I could do better — all from a bird's eye view. I was observing myself going through life, not through my eyes, but from above. I didn't think much of it at the time.",
+      "Until a few years ago I discovered an experiment scientists did called the double-slit test. Scientists shot tiny particles smaller than dust — called electrons — through two slits in a wall. Electrons are part of every single atom, and atoms are the LEGO blocks that make up everything: this chair, this water bottle, this body, literally everything. Zoom in far enough on anything and you'd see atoms; zoom further and you see the electrons themselves.",
+      "When nobody was watching, the electrons were shot through the slits and on the other side their pattern was scattered like complete chaos with no order. But the moment scientists put a camera there to watch the electrons going through the slits, the particles behaved differently — in an orderly fashion, like what you'd expect if a bullet was shot through a slit.",
+      "Physicists debate exactly why this happens, but the point isn't to solve quantum physics. It's to notice the metaphor: being watched changes the behaviour of electrons.",
+      "Now if something as small as an electron behaves differently when it's being observed — and those particles are literally the building blocks that make up you and me — then wouldn't it be fair to say you change too when you're being watched?",
+      "Think about when the big boss is in at work — eager to impress, you act differently knowing he could be observing you. Imagine you're driving and you spot a police car in the distance — you change your speed and act differently. Or you're in the staff room, there's sweets, and everyone knows you're on a diet, so you don't grab them so you don't look like a failure in their eyes. When I raced motorbikes, the section of track where I knew my dad was watching — I rode faster. When you know you're being observed, you act differently, like the electrons.",
+      "Now imagine if you could see yourself going about your own life — would you act in a different way? Well, let's try it. I want you to clone yourself. And if you can clone yourself and observe yourself from the side or above, then the question becomes: which one is the REAL you, because now there's two of you?",
+      "To unpack this, I'm going to take you back to 2020. I went to a retreat in the Netherlands and took a big dose of psychedelics. Proper job. When you take psychedelics, scientists believe they shut down a network in your brain. Neuroscientists call it the 'default mode network' — the default part of you that goes through life on autopilot without having to think. Philosophers call it the 'ego' (not to be mistaken for egotistical). The ego, or DMN, is the filter through which you live your life until you notice it. We'll call it your program moving forward, for ease.",
+      "For me, my default mode or program is: I'm Dan Davies, whose dad brought him up to work hard, never give up, support Liverpool, follow Wales rugby because I live in Wales and should support my home nation because that's what everyone else does; and with my love for Liverpool and Wales who both play in red, my favourite colour is red, and I don't like pink because society made pink out to be for girls. These are programs I've built about myself and about life which have shaped my character, Dan Davies.",
+      "After taking psychedelics I was separated from my program. The whole thing switched off. I saw my own body in a casket, dead. Experts call it EGO DEATH — where the character run by all the programs you've built over the years dies, and you become pure awareness, discovering the real you for the first time.",
+      "To understand this, picture a famous line from Shrek. Shrek turns to Donkey and says: “Onions have layers.” Imagine yourself as an onion. In the very middle is a single layer — that's you when you're born. Just pure awareness. No character or program yet. Uncorrupted by media, your parents' opinions of how you should act, what career to chase, your failures. That's the real you, before any programs were placed upon you. No limitations, no limiting beliefs, no impossible dreams. Just awareness.",
+      "As you get older, people put limitations on you based on what THEY think is possible, through their own shortcomings and failures. You fuck up an exam, play shit for a sports team, make a mistake — so you put limitations on yourself. By your 30s you've built all these layers around that single pure layer, and you spend the rest of your life trying to peel them away so you can transcend and be pure awareness again — like a baby, just watching, observing, instead of believing every story you tell yourself.",
+      "Most people NEVER escape these programs. But that's what we're going to do. Because once you do, the programs keeping you stuck lose their grip. If you can see your thoughts or programs, it means you're not them.",
+      "Once you're able to see yourself and not be dominated by your program — that there is the REAL, RAW, PURE you. The guy full of dreams and hopes, with no limitations on what's possible. The pure observer or witness of life, free from any programs. When you deprogram and become the observer of your thoughts and emotions, you put yourself somewhere free from fear, judgment, limiting beliefs, ruminating thoughts, and opinions — because YOU'RE not living inside the confined walls of your programs.",
+      "When you witness yourself getting thoughts and feeling emotions, you can observe them instead of being and living them. Which means YOU get to choose what thoughts or emotions to entertain or let go of. It's the most liberating thing you can do, because it gives you an option: keep getting involved with them — ruminating on mistakes, embarrassing moments, things you regret — or simply observe them and understand what purpose they're serving. Which is what we'll be doing in the next video.",
+      "So how do you know when a program is running? It shows up as a doubt, a fear, a feeling of not being enough, a flicker of 'I can't do this' or 'who am I to think I can change.' It shows up as the urge to grab a beer when you're stressed, to skip the gym when you're tired, to say yes when you mean no. It shows up where one bad moment makes you think 'fuck it, I've fucked up, may as well ruin everything,' so you eat shit all day and feel guilty after.",
+      "When you feel a program running over the coming days, don't fight it. Get curious. Just notice it. Be like 'Ah, there it is,' then make a mental note. That moment of noticing the program is the observer doing its job. That's you seeing the program instead of being it.",
+      "That's why the real work comes by exposing yourself to daily practice. That's why I've made a built-in journal. Journal every day for 5 days and the next lesson opens. The daily practice is the lesson — not a bonus, not optional.",
+      "Answer the journal question every day and you'll soon start bringing more awareness to your programs. See you in the next lesson.",
     ],
     summary:[
-      "You are not your thoughts — you're the one who can watch them.",
-      "Most men live as the character, never the observer.",
-      "Catching yourself mid-reaction is the observer waking up.",
-      "That gap between reaction and noticing it is where your power lives.",
+      "At 13, playing The Sims, Dan stumbled onto observing himself from above — the foundation of everything.",
+      "The double-slit experiment shows particles behave differently when observed. You do too — around the boss, the police, the staff-room sweets.",
+      "Your 'program' (the ego / default mode network) is the autopilot filter built over years. You can't see it — until you can.",
+      "You're born as pure awareness. Life layers programs on top, like an onion. The work is peeling them back.",
+      "If you can see a thought, you're not that thought. Noticing the program running is the observer doing its job.",
+      "The daily journal is the lesson, not a bonus. Notice your program, don't fight it — just 'Ah, there it is.'",
     ],
-    aiPrompt:"I just watched a lesson about the difference between being swept along by my thoughts (the character) versus observing them (the observer). Help me get better at catching myself in the moment. Ask me about a recent situation where I reacted automatically, and walk me through what the observer version of me might have noticed. Ask one question at a time.",
-    journalPrompt:"Did I catch my ego today or yesterday and what thought, feeling, or reaction did I notice? Did I question it, observe it, or did I get pulled along by it?",
+    journalPrompt:"Did I catch my program today or yesterday and what thought, feeling, or reaction did I notice? Did I question it, observe it, or did I get pulled along by it?",
+    books:[
+      {title:"The Power of Now", url:"https://www.amazon.co.uk/Power-Now-Guide-Spiritual-Enlightenment/dp/0340733500"},
+      {title:"On Having No Head", url:"https://www.amazon.co.uk/Having-Head-Douglas-Edison-Harding/dp/1908774061"},
+    ],
     unlockMessage:"You've shown up five days straight. That's more than most men manage in a year. The habit's started — here's what's next.",
   },
 
@@ -579,7 +628,7 @@ function renderLessons(){
         <div class="cp" id="scp-${l.id}"><div class="content-body">${scriptHTML}</div></div>
         <button class="ct" onclick="toggleContent('qs',${jid(l.id)})">Quick Summary ${chev('ct-chev')}</button>
         <div class="cp" id="qsp-${l.id}"><div class="content-body">${summaryHTML}</div></div>`;
-      if(l.type==='lesson'){
+      if(l.type==='lesson' && l.aiPrompt){
         togglesHTML+=`
         <button class="ct" onclick="toggleContent('ai',${jid(l.id)})">Go Deeper With AI ${chev('ct-chev')}</button>
         <div class="cp" id="aip-${l.id}"><div class="prompt-box">
@@ -613,10 +662,42 @@ function renderLessons(){
         </div>`;
       }
 
+      // Breathwork block (lessons only) — placeholder "coming soon" for now
+      let breathHTML='';
+      if(l.type==='lesson'){
+        breathHTML=`
+        <div class="breath-block">
+          <div class="br-icon"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M10 17c3.5 0 6-2.5 6-5.5C16 8 13 4 10 3 7 4 4 8 4 11.5 4 14.5 6.5 17 10 17Z" stroke="#D4AF37" stroke-width="1.4" stroke-linejoin="round"/><path d="M10 17V9" stroke="#D4AF37" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          <div class="br-text">
+            <div class="br-label">Breathwork Practice</div>
+            <div class="br-sub">Coming soon</div>
+          </div>
+        </div>`;
+      }
+
+      // Go Deeper (books) — only shows if this lesson has books
+      let booksHTML='';
+      if(l.books && l.books.length){
+        const links=l.books.map(b=>`
+          <a class="book-link" href="${b.url}" target="_blank" rel="noopener">
+            <span class="b-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 3.5C3 2.7 3.7 2 4.5 2H13v10H4.5C3.7 12 3 12.7 3 13.5V3.5Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M3 13.5C3 12.7 3.7 12 4.5 12H13v2H4.5C3.7 14 3 13.3 3 12.5" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg></span>
+            <span class="b-title">${b.title}</span>
+            <span class="b-arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M4 10L10 4M10 4H5M10 4V9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>`).join('');
+        booksHTML=`
+        <div class="deeper-block">
+          <div class="d-label">Go Deeper</div>
+          <div class="d-sub">The books that shaped this lesson</div>
+          ${links}
+        </div>`;
+      }
+
       panelHTML=`<div class="lesson-inner">
         <div class="video-wrap">${videoHTML}</div>
         <p class="lesson-desc">${l.desc}</p>
         <div class="content-toggles">${togglesHTML}</div>
+        ${breathHTML}
+        ${booksHTML}
         ${journalHTML}
       </div>`;
     }
@@ -642,18 +723,32 @@ function renderLessons(){
 }
 
 function renderReflectionCard(){
-  const total=state.entries.length;
-  document.getElementById('reflectionLocked').style.display=total>=3?'none':'';
-  document.getElementById('reflectionBody').classList.toggle('visible',total>=3);
-  document.getElementById('lockCount').textContent=`${Math.min(total,3)}/3`;
-  document.getElementById('reflFill').style.width=`${Math.min(total/3,1)*100}%`;
+  /* AI Pattern Reflection is "Coming Soon" — nothing to render dynamically for now. */
 }
 
 function renderDotGrid(){
   const grid=document.getElementById('dotGrid');grid.innerHTML='';
-  const filled=new Set(state.entries.map(e=>e.date));const today=todayStr();
-  for(let i=29;i>=0;i--){const d=new Date();d.setDate(d.getDate()-i);const ds=d.toISOString().slice(0,10);
-    const dot=document.createElement('div');dot.className='dot'+(filled.has(ds)?' filled':'')+(ds===today?' today':'');dot.title=formatDate(ds);grid.appendChild(dot);}
+  const filled=new Set(state.entries.map(e=>e.date));
+  const today=todayStr();
+  // Anchor the 30-day window to the client's FIRST journal day so day 1 sits top-left
+  // and the grid fills forward naturally. Before they start, anchor to today.
+  let start;
+  if(state.entries.length){
+    start=[...filled].sort()[0]; // earliest journaled date
+  }else{
+    start=today;
+  }
+  const startDate=new Date(start+'T00:00:00');
+  for(let i=0;i<30;i++){
+    const d=new Date(startDate);d.setDate(startDate.getDate()+i);
+    const ds=d.toISOString().slice(0,10);
+    const isFuture=ds>today;
+    const dot=document.createElement('div');
+    dot.className='dot'+(filled.has(ds)?' filled':'')+(ds===today?' today':'');
+    if(isFuture)dot.style.opacity='0.5';
+    dot.title=formatDate(ds);
+    grid.appendChild(dot);
+  }
 }
 
 /* helper to safely pass ids (string 'intro' or number) into onclick */
@@ -723,7 +818,6 @@ function showUnlock(lesson){
   document.getElementById('unlockTitle').textContent=lesson.title;
   document.getElementById('unlockMessage').textContent=lesson.unlockMessage;
   document.getElementById('unlockOverlay').classList.add('show');
-  getReflection('unlockReflection',null);
 }
 function closeUnlock(){
   document.getElementById('unlockOverlay').classList.remove('show');
